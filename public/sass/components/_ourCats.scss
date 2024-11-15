@@ -1,0 +1,46 @@
+/* Estilo para la sección "Nuestros Gatos" */
+#our-cats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    padding: 20px;
+    background-color: #e0e0e0;
+}
+
+/* Contenedor para la imagen y el texto */
+.our-cats-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+/* Estilo para la imagen */
+.our-cats-image {
+    flex: 1;
+}
+
+.cats-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el texto */
+.our-cats-text {
+    flex: 1;
+    text-align: left;
+}
+
+.our-cats-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.our-cats-text p {
+    font-size: 1.2rem;
+    color: #333;
+}

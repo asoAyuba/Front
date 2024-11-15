@@ -1,0 +1,84 @@
+@import 'base/reset';
+@import 'base/variables';
+@import 'components/buttons';
+@import 'components/header';
+@import 'components/nav';
+@import 'components/about';
+@import 'components/testimonials';
+@import 'components/ourCats';
+@import 'components/contact';
+@import 'components/cta';
+@import 'components/adoptions';
+@import 'components/footer';
+@import 'layout/header';
+@import 'layout/faqs';
+
+
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Estilos globales
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: $primary-color;
+}
+
+// Header
+header {
+    background-color: $primary-color;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+// Botones
+button {
+    background-color: $secondary-color;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($secondary-color, 10%);
+    }
+}
+
+
+/* Estilo para el botón redondo de scroll-to-top */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 50%; /* Hace el botón redondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #ffcc00;
+    color: #333;
+    transform: scale(1.1); /* Efecto de hover para agrandar el botón */
+}
+
+/* Mostrar el botón cuando el usuario hace scroll */
+.scroll-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+

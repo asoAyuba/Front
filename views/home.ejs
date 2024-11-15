@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script async src="http://localhost:3001/browser-sync/browser-sync-client.js"></script>
+</head>
+<body>
+    <!-- Navegador Sticky -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo e ícono de la protectora -->
+            <a href="#home" class="navbar-logo">
+                <img src="/images/logo.png" alt="Logo Protectora" class="logo-icon">
+            </a>
+            <!-- Links de navegación -->
+            <ul class="navbar-links">
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#our-cats">Nuestros Gatos</a></li>
+                <li><a href="#adoptions">Adopciones</a></li>
+                <li><a href="#donate">Donar</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="hero-header">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Bienvenido a la Protectora de Gatos</h1>
+            <p>Rescatando vidas, un gato a la vez</p>
+        </div>
+    </header>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="about" class="full-screen-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Sobre Nosotros</h2>
+                <p>
+                    Somos una protectora dedicada al rescate, cuidado y adopción de gatos abandonados. Creemos en darles una segunda oportunidad a estos animales maravillosos, brindándoles el amor y el cuidado que merecen mientras encontramos un hogar para cada uno de ellos.
+                </p>
+            </div>
+            <div class="about-images">
+                <img src="/images/about1.jpg" alt="Gato rescatado 1" class="about-img">
+                <img src="/images/about2.jpg" alt="Gato rescatado 2" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="our-cats" class="full-screen-section">
+        <div class="our-cats-container">
+            <div class="our-cats-image">
+                <img src="/images/our-cats.jpg" alt="Nuestros Gatos" class="cats-img">
+            </div>
+            <div class="our-cats-text">
+                <h2>Nuestros Gatos</h2>
+                <p>
+                    Nuestros gatos son cariñosos, juguetones y siempre están buscando un hogar donde puedan recibir amor y cuidados. Cada uno de ellos tiene su propia personalidad y carácter único, y todos han sido rescatados de situaciones difíciles. Estamos seguros de que uno de nuestros adorables amigos puede convertirse en tu compañero ideal.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonios -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2>Nuestros Testimonios</h2>
+                <p>Conoce algunas de las historias de éxito de nuestros queridos gatos y sus adoptantes.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-item">
+                    <h3>Oliver</h3>
+                    <p>Oliver fue rescatado de la calle y ahora vive feliz con su nueva familia. Es muy juguetón y le encanta explorar su nuevo hogar.</p>
+                    <span>Adoptado por: María</span>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="testimonial-item">
+                    <h3>Luna</h3>
+                    <p>Luna llegó a nosotros en mal estado, pero con mucho amor y cuidados, se recuperó por completo. Hoy es la reina de su casa.</p>
+                    <span>Adoptado por: Carlos</span>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="testimonial-item">
+                    <h3>Max</h3>
+                    <p>Max fue encontrado abandonado, pero ahora disfruta de largos paseos por el jardín y muchas caricias de su nueva familia.</p>
+                    <span>Adoptado por: Ana</span>
+                </div>
+                <!-- Testimonio 4 -->
+                <div class="testimonial-item">
+                    <h3>Mia</h3>
+                    <p>Mia es una gata cariñosa que encontró su hogar para siempre. Le encanta dormir junto a su adoptante y ronronear todo el día.</p>
+                    <span>Adoptado por: Javier</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Adopciones -->
+    <section id="adoptions" class="adoptions-section">
+        <h2>Gatos en Adopción</h2>
+        <div class="adoptions-grid">
+            <% gatos.forEach(gato => { %>
+                <div class="cat-card" onclick="openModal('<%= gato.id %>')">
+                    <img src="<%= gato.image %>" alt="<%= gato.name %>" class="cat-image">
+                    <h3><%= gato.name %></h3>
+                </div>
+    
+                <!-- Modal para cada gato -->
+                <div id="modal-<%= gato.id %>" class="cat-modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeModal('<%= gato.id %>')">&times;</span>
+                        <img src="<%= gato.image %>" alt="<%= gato.name %>" class="modal-image">
+                        <h2><%= gato.name %></h2>
+                        <p><strong>Descripción:</strong> <%= gato.description %></p>
+                        <p><strong>Sexo:</strong> <%= gato.gender %></p>
+                        <p><strong>Observaciones:</strong> <%= gato.observations %></p>
+                        <button onclick="window.location.href='/preadopcion'">Formulario de Preadopción</button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+
+    <!-- Sección Donar -->
+    <section id="donate" class="cta-section-donation">
+        <div class="cta-container">
+            <h2>Haz una Diferencia Hoy</h2>
+            <p>
+                Tu donación nos ayuda a seguir cuidando y rescatando a gatos en situación de abandono.
+                Con tu apoyo, podemos brindarles un hogar temporal, atención médica y la oportunidad de encontrar una familia que los ame.
+            </p>
+            <button class="cta-btn" onclick="window.location.href='/donar'">Donar Ahora</button>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-text">
+                <h2>Contacto</h2>
+                <p>
+                    Si tienes alguna pregunta o deseas más información, no dudes en contactarnos.
+                    Puedes enviarnos un correo directamente a <a href="mailto:info@ayuba.org">info@ayuba.org</a>.
+                </p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="first-name">Nombre:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Apellidos:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Formulario</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Boton TOP -->
+    <button id="scroll-to-top" class="scroll-to-top-btn">⬆️ Top</button>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> Protectora de Gatos. Todos los derechos reservados.</p>
+            <ul class="social-links">
+                <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            </ul>
+            <div class="footer-links">
+                <a href="/faq">Preguntas Frecuentes</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

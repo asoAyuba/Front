@@ -1,0 +1,772 @@
+@charset "UTF-8";
+/* _reset.scss */
+/* Elimina márgenes, padding y bordes por defecto */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ajuste para mejorar la legibilidad en tipografía */
+html {
+  font-family: sans-serif;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Remueve estilos por defecto en body */
+body {
+  margin: 0;
+  font-size: 100%;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Elimina subrayado de enlaces y mantiene el color por defecto */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Establece un ancho del 100% para imágenes y videos */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Elimina bullets y padding de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Restablece estilos para botones */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Elimina bordes y espaciado de tablas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Ajuste para inputs y textarea */
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Elimina estilos por defecto para strong y bold */
+strong,
+b {
+  font-weight: bold;
+}
+
+/* Breakpoints */
+.hero-header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  background-image: url("/images/header.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+/* Responsive para el header */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+/* Navbar Sticky */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del Navbar */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Links de navegación */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #f39c12;
+}
+
+/* Responsive para el navegador */
+@media (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .logo-img {
+    height: 30px;
+  }
+}
+/* Estilo para la sección de altura completa */
+.full-screen-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Contenedor de la sección "Sobre Nosotros" */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Texto de la sección "Sobre Nosotros" */
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Imágenes de la sección "Sobre Nosotros" */
+.about-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive para "Sobre Nosotros" */
+@media (max-width: 768px) {
+  #about {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-images {
+    margin-top: 20px;
+  }
+}
+/* Estilo para la sección de Testimonios */
+.testimonials-section {
+  width: 100%;
+  min-height: 50vh; /* Ocupa la mitad de la pantalla */
+  padding: 40px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+}
+
+/* Contenedor para el contenido */
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Encabezado de la sección */
+.testimonials-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.testimonials-header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Diseño de la cuadrícula de testimonios */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Estilo para cada testimonio */
+.testimonial-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Alinea el contenido y el nombre del adoptante */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Asegura que todas las cajas tengan la misma altura */
+}
+
+/* Estilo para el nombre del adoptante */
+.testimonial-item span {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+  margin-top: auto; /* Empuja el nombre del adoptante hacia abajo */
+}
+
+.testimonial-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.testimonial-item p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.testimonial-item span {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* Responsive para testimonios */
+@media (max-width: 600px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Estilo para la sección "Nuestros Gatos" */
+#our-cats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+
+/* Contenedor para la imagen y el texto */
+.our-cats-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  gap: 40px;
+}
+
+/* Estilo para la imagen */
+.our-cats-image {
+  flex: 1;
+}
+
+.cats-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el texto */
+.our-cats-text {
+  flex: 1;
+  text-align: left;
+}
+
+.our-cats-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.our-cats-text p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Estilo para la sección de contacto */
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh; /* Ocupa el 80% de la pantalla, dejando espacio para el footer */
+  padding: 40px;
+  background-color: #f4f4f4;
+}
+
+/* Contenedor para el texto y el formulario */
+.contact-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Estilo para el texto de contacto */
+.contact-text {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-text p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.contact-text a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.contact-text a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para el formulario */
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* Estilo para la sección de Call to Action */
+.cta-section-donation {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #ffcc00;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor del texto y botón */
+.cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo del título */
+.cta-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilo del texto descriptivo */
+.cta-container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Estilo del botón de CTA */
+.cta-btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #222;
+}
+
+/* Responsive para CTA */
+@media (max-width: 600px) {
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+  .cta-section p {
+    font-size: 1rem;
+  }
+  .cta-btn {
+    width: 100%;
+  }
+}
+/* Estilo para la sección de adopciones */
+.adoptions-section {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+/* Estilo para cada tarjeta de gato */
+.cat-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.cat-card:hover {
+  transform: scale(1.05);
+}
+
+.cat-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.cat-card h3 {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+/* Estilo para el modal de adopciones */
+.cat-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: left; /* Alinear todo el texto a la izquierda */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Estilos para el texto del modal */
+.modal-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: left; /* Alinear el título a la izquierda */
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #555;
+  text-align: left; /* Alinear los párrafos a la izquierda */
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  align-self: center; /* Alinear el botón a la izquierda */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* Estilo para el footer */
+.site-footer {
+  width: 100%;
+  padding: 20px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links li {
+  display: inline;
+}
+
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffcc00;
+}
+
+/* Responsive para footer */
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/* Estilo para la sección de FAQ */
+.faq-section {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.faq-item a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.faq-item a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #3498db;
+}
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(36.616, 162.384, 89.948);
+}
+
+/* Estilo para el botón redondo de scroll-to-top */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 50%; /* Hace el botón redondo */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #ffcc00;
+  color: #333;
+  transform: scale(1.1); /* Efecto de hover para agrandar el botón */
+}
+
+/* Mostrar el botón cuando el usuario hace scroll */
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*# sourceMappingURL=styles.css.map */

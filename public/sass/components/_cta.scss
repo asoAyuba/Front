@@ -1,0 +1,59 @@
+/* Estilo para la sección de Call to Action */
+.cta-section-donation {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #ffcc00;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor del texto y botón */
+.cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo del título */
+.cta-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilo del texto descriptivo */
+.cta-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Estilo del botón de CTA */
+.cta-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #222;
+}
+
+/* Responsive para CTA */
+@media (max-width: $breakpoint-mobile) {
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+    }
+}

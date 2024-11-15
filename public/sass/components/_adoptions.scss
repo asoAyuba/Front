@@ -1,0 +1,106 @@
+/* Estilo para la sección de adopciones */
+.adoptions-section {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* Estilo para cada tarjeta de gato */
+.cat-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.cat-card:hover {
+    transform: scale(1.05);
+}
+
+.cat-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+
+.cat-card h3 {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+/* Estilo para el modal de adopciones */
+.cat-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left; /* Alinear todo el texto a la izquierda */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estilos para el texto del modal */
+.modal-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: left; /* Alinear el título a la izquierda */
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: #555;
+    text-align: left; /* Alinear los párrafos a la izquierda */
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    align-self: center; /* Alinear el botón a la izquierda */
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
