@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9009;
 const DB_URL = process.env.DB_URL;
 
 // Cargar el archivo de entorno correcto según NODE_ENV
