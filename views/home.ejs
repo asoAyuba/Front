@@ -103,27 +103,38 @@
     <section id="adoptions" class="adoptions-section">
         <h2>Gatos en Adopción</h2>
         <div class="adoptions-grid">
+          <% if (gatos.length > 0) { %>
             <% gatos.forEach(gato => { %>
-                <div class="cat-card" onclick="openModal('<%= gato.id %>')">
-                    <img src="<%= gato.image %>" alt="<%= gato.name %>" class="cat-image">
-                    <h3><%= gato.name %></h3>
+              <!-- Tarjeta del gato -->
+              <div class="cat-card" onclick="openModal('<%= gato.id %>')">
+                <img src="<%= gato.image || '/images/default-cat.jpg' %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="cat-image">
+                <h2><%= gato.nombre || 'Sin nombre' %></h2>
+                <p><%= gato.description || 'Descripción no disponible' %></p>
+                <p><strong>Género:</strong> <%= gato.sexo || 'Desconocido' %></p>
+                <p><strong>Observaciones:</strong> <%= gato.observations || 'Sin observaciones' %></p>
+              </div>
+      
+              <!-- Modal para cada gato -->
+              <div id="modal-<%= gato.id %>" class="cat-modal">
+                <div class="modal-content">
+                  <span class="close-btn" onclick="closeModal('<%= gato.id %>')">&times;</span>
+                  <img src="<%= gato.image || '/images/default-cat.jpg' %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="modal-image">
+                  <h2><%= gato.nombre || 'Sin nombre' %></h2>
+                  <p><strong>Descripción:</strong> <%= gato.description || 'Descripción no disponible' %></p>
+                  <p><strong>Sexo:</strong> <%= gato.sexo || 'Desconocido' %></p>
+                  <p><strong>Observaciones:</strong> <%= gato.observations || 'Sin observaciones' %></p>
+                  <button onclick="window.location.href='/preadopcion'">Formulario de Preadopción</button>
                 </div>
-    
-                <!-- Modal para cada gato -->
-                <div id="modal-<%= gato.id %>" class="cat-modal">
-                    <div class="modal-content">
-                        <span class="close-btn" onclick="closeModal('<%= gato.id %>')">&times;</span>
-                        <img src="<%= gato.image %>" alt="<%= gato.name %>" class="modal-image">
-                        <h2><%= gato.name %></h2>
-                        <p><strong>Descripción:</strong> <%= gato.description %></p>
-                        <p><strong>Sexo:</strong> <%= gato.gender %></p>
-                        <p><strong>Observaciones:</strong> <%= gato.observations %></p>
-                        <button onclick="window.location.href='/preadopcion'">Formulario de Preadopción</button>
-                    </div>
-                </div>
+              </div>
             <% }) %>
+          <% } else { %>
+            <p>No hay gatos adoptables disponibles en este momento.</p>
+            <% if (error) { %>
+              <p class="error"><%= error %></p>
+            <% } %>
+          <% } %>
         </div>
-    </section>
+      </section>
 
     <!-- Sección Donar -->
     <section id="donate" class="cta-section-donation">
