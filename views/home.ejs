@@ -103,26 +103,27 @@
     <section id="adoptions" class="adoptions-section">
         <h2>Gatos en Adopción</h2>
         <div class="adoptions-grid">
-          <% if (gatos.length > 0) { %>
+          <% if (Array.isArray(gatos) && gatos.length > 0) { %>
             <% gatos.forEach(gato => { %>
               <!-- Tarjeta del gato -->
               <div class="cat-card" onclick="openModal('<%= gato.id %>')">
-                <img src="<%= gato.image || '/images/default-cat.jpg' %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="cat-image">
+                <img src="http://localhost:4000/<%= gato.imagen %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="cat-image">
+                <%= console.log('Ruta de la imagen:', gato.imagen) %>
                 <h2><%= gato.nombre || 'Sin nombre' %></h2>
-                <p><%= gato.description || 'Descripción no disponible' %></p>
+                <p><%= gato.descripcion || 'Descripción no disponible' %></p>
                 <p><strong>Género:</strong> <%= gato.sexo || 'Desconocido' %></p>
-                <p><strong>Observaciones:</strong> <%= gato.observations || 'Sin observaciones' %></p>
+                <p><strong>Observaciones:</strong> <%= gato.observaciones || 'Sin observaciones' %></p>
               </div>
       
               <!-- Modal para cada gato -->
               <div id="modal-<%= gato.id %>" class="cat-modal">
                 <div class="modal-content">
                   <span class="close-btn" onclick="closeModal('<%= gato.id %>')">&times;</span>
-                  <img src="<%= gato.image || '/images/default-cat.jpg' %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="modal-image">
+                  <img src="http://localhost:4000/<%= gato.imagen %>"  >
                   <h2><%= gato.nombre || 'Sin nombre' %></h2>
-                  <p><strong>Descripción:</strong> <%= gato.description || 'Descripción no disponible' %></p>
+                  <p><strong>Descripción:</strong> <%= gato.descripcion || 'Descripción no disponible' %></p>
                   <p><strong>Sexo:</strong> <%= gato.sexo || 'Desconocido' %></p>
-                  <p><strong>Observaciones:</strong> <%= gato.observations || 'Sin observaciones' %></p>
+                  <p><strong>Observaciones:</strong> <%= gato.observaciones || 'Sin observaciones' %></p>
                   <button onclick="window.location.href='/preadopcion'">Formulario de Preadopción</button>
                 </div>
               </div>
