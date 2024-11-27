@@ -107,7 +107,7 @@
             <% gatos.forEach(gato => { %>
               <!-- Tarjeta del gato -->
               <div class="cat-card" onclick="openModal('<%= gato.id %>')">
-                <img src="http://localhost:4000/<%= gato.imagen %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="cat-image">
+                <img src="http://192.168.1.105:4000/<%= gato.imagen %>" alt="<%= gato.nombre || 'Sin nombre' %>" class="cat-image">
                 <%= console.log('Ruta de la imagen:', gato.imagen) %>
                 <h2><%= gato.nombre || 'Sin nombre' %></h2>
                 <p><%= gato.descripcion || 'Descripción no disponible' %></p>
@@ -119,7 +119,7 @@
               <div id="modal-<%= gato.id %>" class="cat-modal">
                 <div class="modal-content">
                   <span class="close-btn" onclick="closeModal('<%= gato.id %>')">&times;</span>
-                  <img src="http://localhost:4000/<%= gato.imagen %>"  >
+                  <img src="http://192.168.1.105:4000/<%= gato.imagen %>"  >
                   <h2><%= gato.nombre || 'Sin nombre' %></h2>
                   <p><strong>Descripción:</strong> <%= gato.descripcion || 'Descripción no disponible' %></p>
                   <p><strong>Sexo:</strong> <%= gato.sexo || 'Desconocido' %></p>
